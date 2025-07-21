@@ -1,4 +1,14 @@
-<form action="/predict" method="POST">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Salary Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Employee Salary Prediction</h1>
+    <form action="/predict" method="POST">
   <div class="form-group">
     <input type="number" name="age" placeholder=" " required>
     <label>Age</label>
@@ -30,3 +40,10 @@
 
   <input type="submit" value="Predict Salary">
 </form>
+
+    {% if predicted_salary %}
+      <p class="result">{{ predicted_salary }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>
